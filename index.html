@@ -1,0 +1,130 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>CS vs BI</title>
+	<script src="jquery-1.9.1.min.js" type="text/javascript" ></script>
+	<style type="text/css">
+		body {
+			font-family: helvetica
+		}
+		ul{
+			margin:0;
+			padding:0;
+		}
+		li{
+			list-style: none;
+		}
+		.container {
+			width: 960px;
+			margin: 0 auto;
+		}
+		td{
+			padding: 5px;
+			margin: 0;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<script type="text/javascript">
+		// create the course object
+		function Course(code, name, descr){
+			this.code = code;
+			this.name = name
+			this.descr = descr;
+		}
+		elect = new Course("elective 3 unit", "", "")
+		//Computer Science courses
+		//CS = new Course("COMP SCI ", "", "")
+		CS = "COMP SCI "
+		CSelect = new Course("elective 3 unit", "", "3 units of electives in Levels III and IV Computer Science")
+		//Level II
+		CS2C03 = new Course(CS + "2C03", "", "")
+		CS2DM3 = new Course(CS + "2DM3", "", "")
+		CS2FA3 = new Course(CS + "2FA3", "", "")
+		CS2GA3 = new Course(CS + "2GA3", "", "")
+		CS2ME3 = new Course(CS + "2ME3", "", "")
+		CS2S03 = new Course(CS + "2S03", "", "")
+		CS2XA3 = new Course(CS + "2XA3", "", "")
+		CS2XB3 = new Course(CS + "2XB3", "", "")
+		//Level III
+		CS3AC3 = new Course(CS + "3AC3", "", "")
+		CS3DB3 = new Course(CS + "3DB3", "", "")
+		CS3I03 = new Course(CS + "3I03", "", "")
+		CS3MI3 = new Course(CS + "3MI3", "", "")
+		CS3SD3 = new Course(CS + "3SD3", "", "")
+		CS3SH3 = new Course(CS + "3SH3", "", "")
+		//Level IV
+		CS4C03 = new Course(CS + "4C03", "", "")
+		CS4TB3 = new Course(CS + "4TB3", "", "")
+		CS4ZP6 = new Course(CS + "4ZP6", "", "")
+
+		//Business Informatic courses
+		//CM = new Course("", "", "")
+		CM = "COMMERCE "
+		//Level II
+		CM2AA3 = new Course("2AA3", "", "")
+		CM2AB3 = new Course("2AB3", "", "")
+		CM2FA3 = new Course("2FA3", "", "")
+		//Level III
+		ST3Y03 = new Course("3Y03", "", "")
+		CM2BA3 = new Course("2BA3", "", "")
+		CM2MA3 = new Course("2MA3", "", "")
+		CM3FA3 = new Course("3FA3", "", "")
+		CM4QA3 = new Course("4QA3", "", "")
+		//Level IV
+		CM2BC3 = new Course("2BC3", "", "")
+		CM4BK3 = new Course("4BK3", "", "")
+		CM4KF3 = new Course("4KF3", "", "")
+		CM4KH3 = new Course("4KH3", "", "")
+		CM4QB3 = new Course("4QB3", "", "")
+		
+
+	</script>
+
+	<div class="container">
+		<table cellspacing="0" border="1">
+			<tr class="title">
+				<td></td>
+				<td>Computer Science</td>
+				<td>Business Informatic</td>
+				<td>Comment</td>	
+			</tr>
+
+			<tr class="I">
+				<td>Level I</td>
+				<td>Computer Science</td>
+				<td>Business Informatic</td>
+				<td>Comment</td>	
+			</tr>
+
+			<tr class="II">
+				<td>Level II</td>
+				<td>C<br>S</td>
+				<td>BI</td>
+				<td>Comment</td>	
+			</tr>
+
+			<tr class="III">
+				<td>Level III</td>
+				<td>CS</td>
+				<td>BI</td>
+				<td>Comment</td>	
+			</tr>
+
+			<tr class="IV">
+				<td>Level IV</td>
+				<td>CS</td>
+				<td>BI</td>
+				<td>Comment</td>	
+			</tr>
+		</table>
+
+
+	</div>
+</body>
+
+</html>
