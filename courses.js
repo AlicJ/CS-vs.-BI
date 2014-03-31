@@ -172,14 +172,14 @@
 			//detect courses hover
 			$( "span#course" ).hover(
 				function() {
-					$(this).click(function(){
+					//$(this).click(function(){
 						courseCode = $(this).attr('class');
 						$(this).mousemove(function(event){
-							var __top = event.pageX;
-  							var __left = event.pageY;
+							var __top = event.pageX + 5;
+  							var __left = event.pageY + 5;
   							showDescr(courseCode, __top, __left);
 						})
-					})
+					//})
 					
 				}, function(){
 					$(".desBox").fadeOut();
