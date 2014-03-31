@@ -19,41 +19,43 @@
 		// temproray arabic to roman from 1 - 4
 		function roman(a){
 			if(a == 4){
-				return "IV"
+				return "IV";
 			}else{
-				var r = ""
+				var r = "";
 				for(var i=0; i<a; i++){
-					r += "I"
+					r += "I";
 				}
-				return r
+				return r;
 			}
 		}
 
 		function returnCode(courseList, level){
-			var newList = courseList[level-1]
-			var str = ""
-			var s = ""
+			var newList = courseList[level-1];
+			var str = "";
+			var s = "";
 			for(var i=0; i<newList.length; i++){
 				if(i==newList.length-1){
-					s = ""
+					s = "";
 				}else{
-					s = "<br/ >"
+					s = "<br/ >";
 				}
-				str += "<span id=\"course\" class=\"" + newList[i].__code +"\">" + newList[i].__code + "</span>" + s
+				str += "<span id=\"course\" class=\"" + newList[i].__code +"\">" + newList[i].__code + "</span>" + s;
 			}
-			return str
+			return str;
 		}
 
 		function returnCourseObj(code){
-			if(code.indexOf("COMMERCE") == -1){
-				var newList = CSCourses
+            var newList;
+			if(code.indexOf("COMMERCE") == -1 || code.indexOf("STAT") == -1){
+				newList = CSCourses;
 			}else{
-				var newList = BICourses
+				newList = BICourses;
+				console.log("EI!")
 			}
 			for(var i=0; i<newList.length; i++){
 				for(var j=0; j<newList[i].length;j++){
 					if(newList[i][j].__code==code){
-						return(newList[i][j]) 
+						return(newList[i][j]);
 					}
 				}
 
@@ -63,21 +65,21 @@
 
 		function showDescr(code, left, top){
 			var course = returnCourseObj(code);
-			//console.log(course);
-			name = course.__name;
-			descr = course.__descr;
-			$(".desBox").text("")
+			console.log(course);
+			var name = course.__name;
+			var descr = course.__descr;
+			$(".desBox").text("");
 			$(".desBox").css("top", top);
 			$(".desBox").css("left", left);
 			$(".desBox").show();
 			$(".desBox").append(
-				"<h3>" + name + "</h3>" +
+				"<h4>" + name + "</h4>" +
 				"<p>" + descr + "</p>"
 			);
 		}
 
 		$(document).ready(function(){
-			var courseCode = ""
+			var courseCode = "";
 			//output all the courses
 			for(var i=1; i<5; i++){
 				$(".courses").append(
@@ -91,7 +93,7 @@
 							returnCode(BICourses,i) +
 						"</td>\
 						<td class=\"comment\">Comment</td>"
-					)
+					);
 			}
 			// end of courses output
 			//detect courses hover
@@ -101,12 +103,12 @@
 						courseCode = $(this).attr('class');
 						$(this).mousemove(function(event){
 							var __top = event.pageX + 5;
-  							var __left = event.pageY + 5;
-  							showDescr(courseCode, __top, __left);
-						})
+                            var __left = event.pageY + 5;
+                            showDescr(courseCode, __top, __left);
+						});
 					//})
 					
 				}, function(){
 					$(".desBox").hide();
 				});
-		})
+		});
