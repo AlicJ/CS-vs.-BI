@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>CS vs BI</title>
-	<script src="jquery-1.9.1.min.js" type="text/javascript" ></script>
+	<script src="jquery-1.11.0.min.js" type="text/javascript" ></script>
 	<style type="text/css">
 		body {
 			font-family: helvetica
@@ -37,7 +37,21 @@
 			width: 30%;
 		}
 		.comment{
-		}	
+		}
+		span#course{
+			cursor: pointer;
+		}
+		span#course:hover{
+			color: red 	;
+		}
+		.desBox {
+			display: none;
+			position: absolute;
+			background: white;
+			width: 250px;
+			padding: 15px;
+			border: 1px solid black;
+		}
 
 	</style>
 
@@ -48,6 +62,7 @@
 	<script src="courses.js" type="text/javascript"></script>
 
 	<div class="container">
+		<div class="desBox"></div>
 		<table class="courses" cellspacing="0" border="1">
 			<tr class="title">
 				<td class="level"></td>

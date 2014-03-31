@@ -1,9 +1,9 @@
 //courses.js
 		// create the course object
 		function Course(code, name, descr){
-			this.code = code;
-			this.name = name;
-			this.descr = descr;
+			this.__code = code;
+			this.__name = name;
+			this.__descr = descr;
 		}
 		var elect = new Course("elcetive 3 unit", "", "");
 		//Computer Science courses
@@ -11,10 +11,10 @@
 		var CS = "COMP SCI ";
 		var CSelect = new Course("CS elcetive 3 unit", "", "3 units of electives in Levels III and IV Computer Science");
 		//Level II
-		var CS2C03 = new Course(CS + "2C03", "", "");
+		var CS2C03 = new Course(CS + "2C03", "DATA STRUCTURES AND ALGORITHMS", "Searching, sorting, dynamic programming, greedy algorithms, abstract data structures, balanced trees, hashing, graphs, design principles, complexity, organization of libraries. Three lectures, one tutorial (one hour); second term");
 		var CS2DM3 = new Course(CS + "2DM3", "", "");
 		var CS2FA3 = new Course(CS + "2FA3", "", "");
-		var CS2GA3 = new Course(CS + "2GA3", "", "");
+		var CS2GA3 = new Course(CS + "2GA3", "    ", "    ");
 		var CS2ME3 = new Course(CS + "2ME3", "", "");
 		var CS2S03 = new Course(CS + "2S03", "", "");
 		var CS2XA3 = new Course(CS + "2XA3", "", "");
@@ -114,24 +114,74 @@
 				}else{
 					s = "<br/ >"
 				}
-				str += newList[i].code + s
+				str += "<span id=\"course\" class=\"" + newList[i].__code +"\">" + newList[i].__code + "</span>" + s
 			}
 			return str
 		}
 
+		function returnCourseObj(code){
+			if(code.indexOf("COMMERCE") == -1){
+				var newList = CSCourses
+			}else{
+				var newList = BICourses
+			}
+			for(var i=0; i<newList.length; i++){
+				for(var j=0; j<newList[i].length;j++){
+					if(newList[i][j].__code==code){
+						return(newList[i][j]) 
+					}
+				}
+
+			}
+
+		}
+
+		function showDescr(code, left, top){
+			var course = returnCourseObj(code);
+			//console.log(course);
+			name = course.__name;
+			descr = course.__descr;
+			$(".desBox").text("")
+			$(".desBox").css("top", top);
+			$(".desBox").css("left", left);
+			$(".desBox").fadeIn();
+			$(".desBox").append(
+				"<h3>" + name + "</h3>" +
+				"<p>" + descr + "</p>"
+			);
+		}
+
 		$(document).ready(function(){
+			var courseCode = ""
+			//output all the courses
 			for(var i=1; i<5; i++){
 				$(".courses").append(
 					//output table row
 					"<tr class=\"level" + i + "\"></tr>\
 						<td class=\"level\">Level " + roman(i) + "</td>\
-						<td class = \"CS\">" + 
-						returnCode(CSCourses, i) +
+						<td class = \"CS\">" +
+							returnCode(CSCourses, i) +
 						"</td>\
 						<td class = \"BI\">" +
-						returnCode(BICourses,i) +
+							returnCode(BICourses,i) +
 						"</td>\
 						<td class=\"comment\">Comment</td>"
 					)
 			}
+			// end of courses output
+			//detect courses hover
+			$( "span#course" ).hover(
+				function() {
+					$(this).click(function(){
+						courseCode = $(this).attr('class');
+						$(this).mousemove(function(event){
+							var __top = event.pageX;
+  							var __left = event.pageY;
+  							showDescr(courseCode, __top, __left);
+						})
+					})
+					
+				}, function(){
+					$(".desBox").fadeOut();
+				});
 		})
