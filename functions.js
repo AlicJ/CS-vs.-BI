@@ -44,17 +44,19 @@
 			return str;
 		}
 
-		function returnCourseObj(code){
+		function returnCourseObj(courseCode){
             var newList;
-			if(code.indexOf("COMMERCE") == -1 || code.indexOf("STAT") == -1){
+            //why does `and` work, but not `or`???
+			if(courseCode.indexOf("COMMERCE") == -1 && courseCode.indexOf("STAT") == -1){
 				newList = CSCourses;
+				//console.log("HEY");
 			}else{
 				newList = BICourses;
-				console.log("EI!")
+				//console.log("EI!");
 			}
 			for(var i=0; i<newList.length; i++){
 				for(var j=0; j<newList[i].length;j++){
-					if(newList[i][j].__code==code){
+					if(newList[i][j].__code==courseCode){
 						return(newList[i][j]);
 					}
 				}
@@ -63,9 +65,9 @@
 
 		}
 
-		function showDescr(code, left, top){
-			var course = returnCourseObj(code);
-			console.log(course);
+		function showDescr(courseCode, left, top){
+			var course = returnCourseObj(courseCode);
+			//console.log(course);
 			var name = course.__name;
 			var descr = course.__descr;
 			$(".desBox").text("");
