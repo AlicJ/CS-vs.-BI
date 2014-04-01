@@ -14,7 +14,7 @@
 		var CS2C03 = new Course(CS + "2C03", "DATA STRUCTURES AND ALGORITHMS", "Searching, sorting, dynamic programming, greedy algorithms, abstract data structures, balanced trees, hashing, graphs, design principles, complexity, organization of libraries. Three lectures, one tutorial (one hour); second term");
 		var CS2DM3 = new Course(CS + "2DM3", "", "");
 		var CS2FA3 = new Course(CS + "2FA3", "", "");
-		var CS2GA3 = new Course(CS + "2GA3", "    ", "    ");
+		var CS2GA3 = new Course(CS + "2GA3", "", "");
 		var CS2ME3 = new Course(CS + "2ME3", "", "");
 		var CS2S03 = new Course(CS + "2S03", "", "");
 		var CS2XA3 = new Course(CS + "2XA3", "", "");
