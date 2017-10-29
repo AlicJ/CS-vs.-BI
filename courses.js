@@ -5,11 +5,11 @@
 			this.__name = name;
 			this.__descr = descr;
 		}
-		var elect = new Course("Elcetive 3 unit", "", "3 units of electives in any program");
+		var elect = new Course("Elective 3 unit", "", "3 units of electives in any program");
 		//Computer Science courses
 		//CS = new Course("COMP SCI ", "", "")
 		var CS = "COMP SCI ";
-		var CSelect = new Course("CS elcetive 3 unit", "", "3 units of electives in Levels III and IV Computer Science");
+		var CSelect = new Course("CS elective 3 unit", "", "3 units of electives in Levels III and IV Computer Science");
 		//Level II
 		var CS2C03 = new Course(CS + "2C03", "DATA STRUCTURES AND ALGORITHMS", "Searching, sorting, dynamic programming, greedy algorithms, abstract data structures, balanced trees, hashing, graphs, design principles, complexity, organization of libraries.<br />Three lectures, one tutorial (one hour); second term");
 		var CS2DM3 = new Course(CS + "2DM3", "FOUNDATIONS I", "Syntax and semantics of formal languages; propositional logic; proof systems; sets, functions, relations, and algebras; graphs and trees; finite state machines; software engineering applications.<br />Three lectures, one tutorial (one hour); first term");
